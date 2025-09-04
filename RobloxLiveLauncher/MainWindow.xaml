@@ -1,0 +1,22 @@
+﻿<Window x:Class="RobloxLiveBootstrapper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Black"
+        Width="400" Height="300"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Source="pack://application:,,,/Roblox_Logo_2022.jpg"
+                   Width="120" Height="120" Stretch="Uniform"/>
+            <TextBlock x:Name="LblStatus" 
+                       Text="Checking Roblox channel..."
+                       Margin="0,16,0,0"
+                       FontSize="14"
+                       HorizontalAlignment="Center" 
+                       Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>

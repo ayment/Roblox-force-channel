@@ -1,0 +1,12 @@
+<Window x:Class="RobloxLiveBootstrapper.FirstRunWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Roblox LIVE Setup" Height="200" Width="400">
+    <StackPanel Margin="20">
+        <TextBlock Text="First time setup" FontSize="16" Margin="0,0,0,10"/>
+        <CheckBox x:Name="chkDesktop" Content="Create Desktop Shortcut" Margin="0,5"/>
+        <CheckBox x:Name="chkStartMenu" Content="Create Start Menu Shortcut" Margin="0,5"/>
+        <Button Content="Continue" Width="100" Margin="0,10,0,0" 
+                HorizontalAlignment="Left" Click="Continue_Click"/>
+    </StackPanel>
+</Window>
