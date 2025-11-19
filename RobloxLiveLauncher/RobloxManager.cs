@@ -65,25 +65,29 @@ namespace RobloxLiveBootstrapper
                 throw new FileNotFoundException("RobloxPlayerBeta.exe not found after assembly!");
 
             ShortcutHelper.CreateRobloxShortcuts(exePath);
+            ShortcutHelper.RegisterRobloxProtocol(outDir);
 
             return exePath;
         }
 
         public static void UninstallRoblox(Action<string>? onStatus = null)
         {
-            if (Directory.Exists(RobloxDir))
+            string versionsPath = Path.Combine(RobloxDir, "Versions");
+
+            if (Directory.Exists(versionsPath))
             {
-                onStatus?.Invoke("Uninstalling Roblox...");
+                onStatus?.Invoke("Removing Roblox Player (keeping Studio)...");
                 try
                 {
-                    Directory.Delete(RobloxDir, true);
+                    Directory.Delete(versionsPath, true);
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"Failed to uninstall Roblox: {ex}");
+                    Debug.WriteLine($"Failed to uninstall Roblox Player: {ex}");
                 }
             }
         }
+
 
         public static async Task UninstallBootstrapperAsync(bool removeRoblox = false)
         {

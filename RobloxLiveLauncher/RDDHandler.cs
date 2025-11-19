@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -145,4 +146,5 @@ public class RDDService
 
         File.WriteAllText(clientSettingsPath, clientSettingsContent);
     }
+
 }

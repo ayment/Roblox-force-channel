@@ -57,6 +57,8 @@ namespace RobloxLiveBootstrapper
                 LblStatus.Text = "Version mismatch or not installed. Updating...";
                 UninstallRoblox();
                 string installedExe = await InstallLatestVersion(latestVersion);
+                ShortcutHelper.CreateRobloxShortcuts(installedExe);
+
 
                 if (File.Exists(installedExe))
                 {

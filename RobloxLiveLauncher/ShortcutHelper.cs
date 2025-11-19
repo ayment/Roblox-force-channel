@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Diagnostics;
 using System.IO;
 
@@ -70,6 +71,20 @@ namespace RobloxLiveBootstrapper
             Directory.CreateDirectory(folder);
             string startShortcut = Path.Combine(folder, "Roblox Player.lnk");
             CreateShortcut(startShortcut, robloxExePath, Path.GetDirectoryName(robloxExePath)!, "Roblox Player");
+        }
+        public static void RegisterRobloxProtocol(string versionDir)
+        {
+            string launcher = Path.Combine(versionDir, "RobloxPlayerLauncher.exe");
+            string exe = Path.Combine(versionDir, "RobloxPlayerBeta.exe");
+
+            RegistryKey key = Registry.ClassesRoot.CreateSubKey("roblox-player");
+            key.SetValue("", "URL: Roblox Player Protocol");
+            key.SetValue("URL Protocol", "");
+
+            key.CreateSubKey("DefaultIcon").SetValue("", exe);
+
+            key.CreateSubKey(@"shell\open\command")
+               .SetValue("", $"\"{launcher}\" \"%1\"");
         }
 
     }
